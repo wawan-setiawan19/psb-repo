@@ -25,7 +25,7 @@ class Member extends CI_Controller
         $this->load->model('Berkas_model');    
         $this->load->library('form_validation');
 	    $this->load->library('datatables');		
-    } 
+    }
 
     public function formcreate()
     {

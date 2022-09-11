@@ -29,7 +29,7 @@ $lang['login_password_label']  = 'Kata Sandi';
 $lang['login_remember_label']  = 'Ingatkan Saya';
 $lang['login_submit_btn']      = 'Login';
 $lang['login_forgot_password'] = 'Lupa Kata Sandi?';
-$lang['register_a_new_membership'] = 'Buat Akun Pengguna';
+$lang['register_a_new_membership'] = 'Daftar';
 
 // Index
 $lang['index_heading']           = 'Pengguna';

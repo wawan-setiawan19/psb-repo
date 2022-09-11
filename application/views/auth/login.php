@@ -89,7 +89,7 @@
         <div class="login-logo">
           <div class='logo hidden-xs'><img class='img img-responsive' style='max-width:300px;' src="<?= base_url('assets/dist/img/'.$pengaturan->logo) ?>" width='200px'></div>
           <h1><strong>Penerimaan Santri Baru</strong></h1>
-          <!-- <h5>version <?= $this->config->item('version')?></h> -->
+          <h5>SDIQu-SMPIQu-SMAIQu Al Bahjah</h5>
         </div>
         <div class="container-login ">
         <?php if ($this->config->item('identity', 'ion_auth') != 'email') { ?>  

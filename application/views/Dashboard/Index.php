@@ -319,11 +319,39 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
   <?php
   $user = $this->ion_auth->user()->row();
   if ($user->activation_code !== '200') { ?>
-    <?php if ($user->activation_code == '100') { ?>
+    <?php if ($user->activation_code == '100') {
+      
+      $rekening = '';
+      $nomor_hp = '';
+
+      if ($user->tujuan == 'SDIQu') {
+        $rekening = '7512222368';
+        $nomor_hp = '0812-2238-8117';
+        $nomor_wa = '6281222388117';
+      } else if ($user->tujuan == 'SMPIQu') {
+        $rekening = '7512222336';
+        $nomor_hp = '0822-1727-9997';
+        $nomor_wa = '6282217279997';
+      } else {
+        $rekening = '7512222301';
+        $nomor_hp = '0851-5511-9239';
+        $nomor_wa = '6285155119239';
+      }
+      
+      ?>
     <div class="jumbotron well well-lg bg-green rounded">
       <div class="container">
-        <h1>Akun anda sedang dalam pengajuan aktivasi</h1>
-        <p>silakan hubungi Humas <?= $user->tujuan?> atau ketua PSB <?= $user->tujuan?></p>
+        <h3>Akun anda sedang dalam pengajuan aktivasi</h3>
+        <p>
+        SILAHKAN 📥:
+        <br>1. Transfer biaya pendaftaran sebesar Rp. 400.000,- ke rekening Bank Syariah Indonesia (BSI): <?= $rekening ?>. An <?= $user->tujuan?> Al Bahjah Pusat PSB
+        <br>2. Konfirmasi dan Kirim bukti transfer ke nomor <?= $nomor_hp ?> (Humas <?= $user->tujuan?> Al Bahjah Pusat)
+        <div>
+          <!-- <a class="btn btn-primary" target="_blank" href="https://wa.me/6285155119239?text=Assalamualaiakum,%20afwan%20saya%20mau%20konfirmasi%20pembayaran%20pendaftaran%20atas%20nama%20<?= $user->first_name?>%20NISN%20<?= $user->username?>">Chat Humas <?= $user->tujuan?> Al Bahjah Pusat</a> -->
+          <a class="btn btn-primary" target="_blank" href="https://wa.me/<?= $nomor_wa ?>?text=Assalamualaiakum,%20afwan%20saya%20mau%20konfirmasi%20pembayaran%20pendaftaran%20atas%20nama%20<?= $user->first_name?>%20NISN%20<?= $user->username?>">Chat Humas <?= $user->tujuan?> Al Bahjah Pusat</a>
+        </div>
+        </p>
+        <!-- <p>silakan hubungi Humas <?= $user->tujuan?> atau ketua PSB <?= $user->tujuan?></p> -->
       </div>
     </div>
     <?php } else { ?>

@@ -35,8 +35,8 @@ class Users_model extends CI_Model
         //add this line for join
         // $this->datatables->join('table2', 'users.field = table2.field');
         $this->datatables->join('users_groups', 'users.id = users_groups.user_id');
-        // $this->datatables->where('users_groups.user_id', '2');   
-        $this->datatables->where('activation_code', '100');   
+        $this->datatables->where('group_id', 2);   
+        // $this->datatables->where('activation_code', '100');   
         $this->datatables->add_column('action', 
             // anchor(site_url('users/read/$1'),'<i class="fa fa-search"></i>', 'class="btn btn-xs btn-primary btn-flat"  data-toggle="tooltip" title="Detail"')."  ".
             // anchor(site_url('auth/edit_user/$1'), '<i class="fa fa-user-edit"></i>', 'class="btn btn-warning btn-flat btn-xs" data-toogle="tooltip" title="Edit User"')."  ".

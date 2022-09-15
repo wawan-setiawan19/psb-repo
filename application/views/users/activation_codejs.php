@@ -106,7 +106,7 @@
                         var index = page * length + (iDisplayIndex + 1);
                         $('td:eq(3)', row).html(fullname);
                         $('td:eq(1)', row).html(index);
-                        if (data.activation_code !== 200) {
+                        if (data.activation_code !== '200') {
                             $('td:eq(5)', row).html('<div class="btn btn-warning">Peserta belum Aktif</div>');
                             // $('td:eq(5)', row).html('<button href="" onclick="return confirmdelete(activation/aktivasi/'+data.id+')" class="btn btn-primary">Aktivasi</button>');
                             $('td:eq(6)', row).html('<a href="activation/aktivasi/'+data.id+'" class="btn btn-primary">Aktivasi</a>');

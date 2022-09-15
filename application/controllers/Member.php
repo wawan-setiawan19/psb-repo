@@ -192,7 +192,7 @@ class Member extends CI_Controller
 				'id_jalur' => $this->input->post('id_jalur',TRUE),
 				'nama_peserta' => $this->input->post('nama_peserta',TRUE),
 				'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
-				// 'nisn' => $this->input->post('nisn',TRUE),
+				'nisn' => $this->input->post('nisn',TRUE),
 				'nik' => $this->input->post('nik',TRUE),
 				'tempat_lahir' => $this->input->post('tempat_lahir',TRUE),
         		'tanggal_lahir' => date('Y-m-d', strtotime($this->input->post('tanggal_lahir',TRUE))),
@@ -330,7 +330,7 @@ class Member extends CI_Controller
 				'jenis_kelamin' => $this->input->post('jenis_kelamin',TRUE),
 				'nisn' => $this->input->post('nisn',TRUE),
 				'agama' => $this->input->post('agama',TRUE),
-				'id_sekolah' => $this->input->post('id_sekolah',TRUE),
+				'asal_sekolah' => $this->input->post('asal_sekolah',TRUE),
 				'id_jalur' => $this->input->post('id_jalur',TRUE),
 				'status' => $this->input->post('status',TRUE),
 				'aktivasi' => $this->input->post('aktivasi', TRUE),
@@ -364,7 +364,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('id_jalur', 'jalur', 'trim|required');
 		$this->form_validation->set_rules('nama_peserta', 'nama peserta', 'trim|required');
 		$this->form_validation->set_rules('jenis_kelamin', 'jenis kelamin', 'trim|required');
-		$this->form_validation->set_rules('nisn', 'nisn', 'trim|numeric|exact_length[10]',
+		$this->form_validation->set_rules('nisn', 'nisn', 'trim',
         array(
                 'is_unique'     => 'NISN Peserta sudah terdaftar '                
         ));

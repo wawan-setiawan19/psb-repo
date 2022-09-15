@@ -204,15 +204,16 @@
 <!-- end pilihan jurusan -->                                                       
                           <?php if ($formulir->asal_sekolah=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="int">Asal Sekolah <span style="color:red;">*</span> <?php echo form_error('id_sekolah') ?> <i class="fas fa-plus-circle" data-toggle="modal" data-target="#myModalInfo"></i></label>
-                                <select type="text" class="select2 form-control" name="id_sekolah" id="id_sekolah" placeholder="Asal Sekolah" value="" required/>
+                                <label for="int">Asal Sekolah <span style="color:red;">*</span> <?php echo form_error('id_sekolah') ?></label>
+                                <input type="text" class="form-control" name="asal_sekolah" id="nisn" placeholder="Masukkan Asal Sekolah" value=""/>
+                                <!-- <select type="text" class="select2 form-control" name="id_sekolah" id="id_sekolah" placeholder="Asal Sekolah" value="" required/>
                                     <option value="">Pilih Asal Sekolah</option>
                                     <?php foreach ($sekolah as $key => $value) { ?>
                                         <option value="<?= $value->id_sekolah;?>">
                                             <?= $value->npsn_sekolah;?> | <?= $value->asal_sekolah;?> | <?= $value->kecamatan;?>
                                         </option>
                                     <?php }?>
-                                </select>
+                                </select> -->
                           </div>
                           <?php } ?>
                           <?php if ($formulir->no_peserta_ujian=='Ya'){ ?>

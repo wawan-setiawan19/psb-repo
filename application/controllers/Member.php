@@ -98,7 +98,7 @@ class Member extends CI_Controller
 		    'jumlah_saudara_kandung' => set_value('jumlah_saudara_kandung'),
 		    'id_jurusan' => set_value('id_jurusan'),
 		    'pilihan_dua' => set_value('pilihan_dua'),
-		    'id_sekolah' => set_value('id_sekolah'),
+		    // 'id_sekolah' => set_value('id_sekolah'),
 		    'no_un' => set_value('no_un'),
 		    'no_seri_ijazah' => set_value('no_seri_ijazah'),
 		    'no_seri_skhu' => set_value('no_seri_skhu'),
@@ -120,7 +120,7 @@ class Member extends CI_Controller
         ];
 
         $data['code_js'] = 'peserta/codejs';
-        $data['sekolah'] =$this->Sekolah_model->get_all();
+        // $data['sekolah'] =$this->Sekolah_model->get_all();
         $data['jalur'] =$this->Jalur_model->get_all();
         $data['jurusan'] =$this->Jurusan_model->get_all();
         $data['tahunpelajaran'] =$this->Tahunpelajaran_model->get_tahun_aktif();
@@ -186,7 +186,7 @@ class Member extends CI_Controller
             redirect(site_url('member/formcreate'));                 
         } else {
             $data = array(
-				// 'no_pendaftaran' => $no_pendaftaran,
+				'no_pendaftaran' => $no_pendaftaran,
         		'tanggal_daftar' => date('Y-m-d'),
 				'id_tahun' => $this->input->post('id_tahun',TRUE),
 				'id_jalur' => $this->input->post('id_jalur',TRUE),
@@ -248,7 +248,7 @@ class Member extends CI_Controller
 				'jumlah_saudara_kandung' => $this->input->post('jumlah_saudara_kandung',TRUE),
 				'id_jurusan' => $this->input->post('id_jurusan',TRUE),
 				'pilihan_dua' => $this->input->post('pilihan_dua',TRUE),
-				'id_sekolah' => $this->input->post('id_sekolah',TRUE),
+				'asal_sekolah' => $this->input->post('asal_sekolah',TRUE),
 				'no_un' => $this->input->post('no_un',TRUE),
 				'no_seri_ijazah' => $this->input->post('no_seri_ijazah',TRUE),
 				'no_seri_skhu' => $this->input->post('no_seri_skhu',TRUE),
@@ -256,7 +256,7 @@ class Member extends CI_Controller
 				'nilai_usbn' => $this->input->post('nilai_usbn',TRUE),
 				'nilai_unbk_unkp' => $this->input->post('nilai_unbk_unkp',TRUE),
 				'status' => $this->input->post('status',TRUE),
-				'aktivasi' => $this->input->post('aktivasi',TRUE),
+				// 'aktivasi' => $this->input->post('aktivasi',TRUE),
 				'status_hasil' => $this->input->post('status_hasil',TRUE),
 				'status_daftar_ulang' => $this->input->post('status_daftar_ulang',TRUE),
 				'id_users' => $this->input->post('id_users',TRUE),
@@ -270,7 +270,8 @@ class Member extends CI_Controller
 	            $this->session->set_flashdata('message', 'Terjadi kesalahan sistem, silahkan ulangi');           
 	            redirect(site_url('member/formcreate'));
 			} else {
-	            $this->Peserta_model->update($this->input->post('id_users',TRUE),$data);
+				$this->Peserta_model->insert($data);
+	            // $this->Peserta_model->update($this->input->post('id_users',TRUE),$data);
 	            $this->session->set_flashdata('message', 'Formulir Berhasil dikirim');
             	helper_log("add", "Mengisi formulir pendaftaran");	            
 	            redirect(site_url('dashboard'));
@@ -422,7 +423,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('jumlah_saudara_kandung', 'jumlah saudara kandung', 'trim|numeric');
 		$this->form_validation->set_rules('id_jurusan', 'jurusan pilihan satu', 'trim');
 		$this->form_validation->set_rules('pilihan_dua', 'jurusan pilihan dua', 'trim');
-		$this->form_validation->set_rules('id_sekolah', 'sekolah', 'trim');
+		// $this->form_validation->set_rules('id_sekolah', 'sekolah', 'trim');
 		$this->form_validation->set_rules('no_un', 'no peserta un', 'trim');
 		$this->form_validation->set_rules('no_seri_ijazah', 'no seri ijazah', 'trim');
 		$this->form_validation->set_rules('no_seri_skhu', 'no seri skhu', 'trim');
@@ -774,7 +775,7 @@ class Member extends CI_Controller
 			'jumlah_saudara_kandung' => $this->input->post('jumlah_saudara_kandung',TRUE),
 			'id_jurusan' => $this->input->post('id_jurusan',TRUE),
 			'pilihan_dua' => $this->input->post('pilihan_dua',TRUE),
-			'id_sekolah' => $this->input->post('id_sekolah',TRUE),
+			// 'id_sekolah' => $this->input->post('id_sekolah',TRUE),
 			'no_un' => $this->input->post('no_un',TRUE),
 			'no_seri_ijazah' => $this->input->post('no_seri_ijazah',TRUE),
 			'no_seri_skhu' => $this->input->post('no_seri_skhu',TRUE),

@@ -169,17 +169,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         {"data": "no_pendaftaran","className" : "text-center"},
                         {"data": "nama_peserta"},
                         {"data": "jalur"},
-                        {"data": "status","className" : "text-center"},
-                        {"data": "status_hasil","className" : "text-center"},
-                        {"data": "status_daftar_ulang","className" : "text-center"},
+                        // {"data": "status","className" : "text-center"},
+                        // {"data": "status_hasil","className" : "text-center"},
+                        // {"data": "status_daftar_ulang","className" : "text-center"},
                         // {"data": "aktivasi","className" : "text-center"},
                         {  
                             "data" : "action",
                             "orderable": false,
                             "className" : "text-center"
-                        },
-                        {
-                            "data":"aktivasi"
                         }
                     ],
                     columnDefs: [
@@ -203,45 +200,45 @@ google.maps.event.addDomListener(window, 'load', initialize);
                         var index = page * length + (iDisplayIndex + 1);
                         $('td:eq(1)', row).html(index);
                         // var id = data.id_peserta;
-                        var stt = data.status;
-                        if (stt=="Belum diverifikasi"){
-                            $('td:eq(5)', row).html('<span class="label label-warning">Belum diverifikasi</span>');
-                        } else if (stt=="Sudah diverifikasi"){
-                            $('td:eq(5)', row).html('<span class="label label-success">Sudah diverifikasi</span>');
-                        } else if (stt=="Berkas Kurang"){
-                            $('td:eq(5)', row).html('<span class="label label-danger">Berkas kurang/tidak sesuai</span>');
-                        }
+                        // var stt = data.status;
+                        // if (stt=="Belum diverifikasi"){
+                        //     $('td:eq(5)', row).html('<span class="label label-warning">Belum diverifikasi</span>');
+                        // } else if (stt=="Sudah diverifikasi"){
+                        //     $('td:eq(5)', row).html('<span class="label label-success">Sudah diverifikasi</span>');
+                        // } else if (stt=="Berkas Kurang"){
+                        //     $('td:eq(5)', row).html('<span class="label label-danger">Berkas kurang/tidak sesuai</span>');
+                        // }
 
-                        var akt = data.aktivasi;
-                        if (akt=='BELUM AKTIVASI') {
-                            $('td:eq(5)', row).html('<span class="label label-warning">Belum aktivasi</span>');
-                            $('td:eq(9)', row).html('<a href="peserta/aktivasi/'+data.id_peserta+'" class="btn btn-primary">Aktivasi</a>');
-                        }else{
-                            $('td:eq(9)', row).html('<span class="label label-success">Sudah diaktivasi</span>');
-                        }
+                        // var akt = data.aktivasi;
+                        // if (akt=='BELUM AKTIVASI') {
+                        //     $('td:eq(5)', row).html('<span class="label label-warning">Belum aktivasi</span>');
+                        //     $('td:eq(9)', row).html('<a href="peserta/aktivasi/'+data.id_peserta+'" class="btn btn-primary">Aktivasi</a>');
+                        // }else{
+                        //     $('td:eq(9)', row).html('<span class="label label-success">Sudah diaktivasi</span>');
+                        // }
                         
 
-                        var stt_hasil = data.status_hasil; 
-                        if (stt_hasil=="Cadangan"){
-                            $('td:eq(6)', row).html('<span class="label label-warning">Cadangan</span>');
-                        } else if (stt_hasil=="Di Terima"){
-                            $('td:eq(6)', row).html('<span class="label label-success">Di Terima</span>');
-                        } else if (stt_hasil=="Tidak di terima"){
-                            $('td:eq(6)', row).html('<span class="label label-danger">Tidak di terima</span>');
-                        } else if (stt_hasil=="Belum ada"){
-                            $('td:eq(6)', row).html('<span class="label label-primary">Belum ada</span>');
-                        }    
+                        // var stt_hasil = data.status_hasil; 
+                        // if (stt_hasil=="Cadangan"){
+                        //     $('td:eq(6)', row).html('<span class="label label-warning">Cadangan</span>');
+                        // } else if (stt_hasil=="Di Terima"){
+                        //     $('td:eq(6)', row).html('<span class="label label-success">Di Terima</span>');
+                        // } else if (stt_hasil=="Tidak di terima"){
+                        //     $('td:eq(6)', row).html('<span class="label label-danger">Tidak di terima</span>');
+                        // } else if (stt_hasil=="Belum ada"){
+                        //     $('td:eq(6)', row).html('<span class="label label-primary">Belum ada</span>');
+                        // }    
 
-                        var stt_du = data.status_daftar_ulang;
-                        if (stt_du=="Belum daftar ulang"){
-                            $('td:eq(7)', row).html('<span class="label label-warning">Belum daftar ulang</span>');
-                        } else if (stt_du=="Sudah daftar ulang"){
-                            $('td:eq(7)', row).html('<span class="label label-success">Sudah daftar ulang</span>');
-                        } else if (stt_du=="Tidak daftar ulang"){
-                            $('td:eq(7)', row).html('<span class="label label-danger">Tidak daftar ulang</span>');
-                        } else if (stt_du=="Menunggu"){
-                            $('td:eq(7)', row).html('<span class="label label-primary">Menunggu</span>');
-                        } 
+                        // var stt_du = data.status_daftar_ulang;
+                        // if (stt_du=="Belum daftar ulang"){
+                        //     $('td:eq(7)', row).html('<span class="label label-warning">Belum daftar ulang</span>');
+                        // } else if (stt_du=="Sudah daftar ulang"){
+                        //     $('td:eq(7)', row).html('<span class="label label-success">Sudah daftar ulang</span>');
+                        // } else if (stt_du=="Tidak daftar ulang"){
+                        //     $('td:eq(7)', row).html('<span class="label label-danger">Tidak daftar ulang</span>');
+                        // } else if (stt_du=="Menunggu"){
+                        //     $('td:eq(7)', row).html('<span class="label label-primary">Menunggu</span>');
+                        // } 
                     }
                 });
 

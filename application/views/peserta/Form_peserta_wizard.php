@@ -204,8 +204,8 @@
 <!-- end pilihan jurusan -->                                                       
                           <?php if ($formulir->asal_sekolah=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="int">Asal Sekolah <span style="color:red;">*</span> <?php echo form_error('id_sekolah') ?></label>
-                                <input type="text" class="form-control" name="asal_sekolah" id="nisn" placeholder="Masukkan Asal Sekolah" value=""/>
+                                <label for="int">Asal Sekolah <span style="color:red;">*</span></label>
+                                <input type="text" class="form-control" name="asal_sekolah" id="asal_sekolah" placeholder="Masukkan Asal Sekolah" value=""/>
                                 <!-- <select type="text" class="select2 form-control" name="id_sekolah" id="id_sekolah" placeholder="Asal Sekolah" value="" required/>
                                     <option value="">Pilih Asal Sekolah</option>
                                     <?php foreach ($sekolah as $key => $value) { ?>
@@ -309,7 +309,7 @@
                                         <option value="Budha">Budha</option>
                                         <option value="Konghucu">Konghuchu</option>
                                 </select> -->
-                                <input type="text" class="form-control" name="nisn" id="nisn" placeholder="NISN harus tepat 10 karakter" value="ISLAM" readonly/>
+                                <input type="text" class="form-control" name="agama" id="agama" placeholder="NISN harus tepat 10 karakter" value="ISLAM" readonly/>
                           </div>
                           <?php } ?>
                           <?php if ($formulir->kewarganegaraan=='Ya'){ ?>

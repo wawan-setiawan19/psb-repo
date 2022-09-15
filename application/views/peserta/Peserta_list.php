@@ -39,10 +39,10 @@
 							    <th>No Pendaftaran</th>
 								<th>Nama Peserta</th>
  								<th>Jalur</th>
-							    <th>Status</th>
+							    <!-- <th>Status</th>
 							    <th>Hasil</th>
 							    <th>Daftar Ulang</th>
-							    <th>Aktivasi</th>
+							    <th>Aktivasi</th> -->
 							    <!-- <th>Id Users</th>		 -->
                                 <th width="140px">Action</th>
                             </tr>

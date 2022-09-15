@@ -299,7 +299,7 @@
                           <?php if ($formulir->agama=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Agama <span style="color:red;">*</span> <?php echo form_error('agama') ?></label>
-                                <select type="text" class="form-control" name="agama" id="agama" placeholder="Agama" value="" required/>
+                                <!-- <select type="text" class="form-control" name="agama" id="agama" placeholder="Agama" value="" required/>
                                         <option value="">Pilih Agama</option>
                                         <option value="Islam">Islam</option>
                                         <option value="Kristen">Kristen</option>
@@ -307,7 +307,8 @@
                                         <option value="Hindu">Hindu</option>
                                         <option value="Budha">Budha</option>
                                         <option value="Konghucu">Konghuchu</option>
-                                </select>
+                                </select> -->
+                                <input type="text" class="form-control" name="nisn" id="nisn" placeholder="NISN harus tepat 10 karakter" value="ISLAM" readonly/>
                           </div>
                           <?php } ?>
                           <?php if ($formulir->kewarganegaraan=='Ya'){ ?>
@@ -908,7 +909,7 @@
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="berat_badan" id="berat_badan" />
                           <?php } ?>                          
-                          <?php if ($formulir->jarak_ke_sekolah=='Ya'){ ?>
+                          <!-- <?php if ($formulir->jarak_ke_sekolah=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Jarak ke sekolah <span style="color:red;">*</span> <?php echo form_error('id_jarak') ?></label>
                                 <select type="text" class="select2 form-control" name="id_jarak" id="id_jarak" placeholder="Jarak ke sekolah" value="" required/>
@@ -920,7 +921,7 @@
                                     <?php }?>
                                 </select>
                           </div>
-                          <?php } ?>
+                          <?php } ?> -->
                           <?php if ($formulir->jumlah_saudara_kandung=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Jumlah saudara kandung <span style="color:red;">*</span> <?php echo form_error('jumlah_saudara_kandung') ?></label>

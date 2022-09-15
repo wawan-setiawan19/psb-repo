@@ -792,7 +792,7 @@
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="berat_badan" id="berat_badan" />
                           <?php } ?>                          
-                          <?php if ($formulir->jarak_ke_sekolah=='Ya'){ ?>
+                          <!-- <?php if ($formulir->jarak_ke_sekolah=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Jarak ke sekolah <span style="color:red;">*</span> <?php echo form_error('id_jarak') ?></label>
                                 <select type="text" class="select2 form-control" name="id_jarak" id="id_jarak" placeholder="Jarak ke sekolah" value="" required/>
@@ -804,7 +804,7 @@
                                     <?php }?>
                                 </select>
                           </div>
-                          <?php } ?>
+                          <?php } ?> -->
                           <?php if ($formulir->jumlah_saudara_kandung=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Jumlah saudara kandung <span style="color:red;">*</span> <?php echo form_error('jumlah_saudara_kandung') ?></label>

@@ -136,7 +136,7 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
       </div>
 
 <!-- progress bar -->  
-<?php if ($pengaturan->jenjang=='SMK') { ?>   
+<!-- <?php if ($pengaturan->jenjang=='SMK') { ?>   
       <div class="row">
         <div class="col-md-12 col-xs-12">
           <div class="box box-primary">
@@ -178,7 +178,7 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
           </div>
         </div>   
       </div>    
-<?php } ?>      
+<?php } ?>       -->
 <!-- end progress bar -->                  
 
 <!-- start GIS Peserta + log aktivitas -->  

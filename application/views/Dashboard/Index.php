@@ -74,9 +74,40 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
             </div>
           </div>
         </div>
+        <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="info-box bg-yellow">
+            <span class="info-box-icon"><i class="fas fa-users"></i></span>
+            <div class="info-box-content">
+              <span class="info-box-text">TOTAL PENDAFTAR</span>
+              <span class="info-box-number"><?php echo $totalpeserta ?></span>
+              <div class="progress">
+                <div class="progress-bar" style="width : <?php echo $barjalur3.'%' ?>"></div>
+              </div>
+              <span class="progress-description">
+                <a href="<?= base_url();?>peserta" class="small-box-footer" style="color: white;">
+                More info <i class="fa fa-arrow-circle-right"></i>
+              </a> 
+              </span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="col-md-3 col-sm-6 col-xs-12">
+          <div class="small-box bg-teal">
+            <div class="inner">
+              <h3><?php echo $totalpeserta ?></h3>
+              <p>Total Pendaftar</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-users"></i>
+            </div>
+            <a href="<?= base_url();?>peserta" class="small-box-footer">
+              More info <i class="fa fa-arrow-circle-right"></i>
+            </a>            
+          </div>
+        </div> -->
       </div>
 
-      <div class="row">
+      <!-- <div class="row">
         <div class="col-md-3 col-sm-6 col-xs-12">
           <div class="small-box bg-teal">
             <div class="inner">
@@ -133,7 +164,7 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
             </a>
           </div>
         </div>
-      </div>
+      </div> -->
 
 <!-- progress bar -->  
 <!-- <?php if ($pengaturan->jenjang=='SMK') { ?>   

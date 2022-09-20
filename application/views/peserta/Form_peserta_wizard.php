@@ -32,13 +32,35 @@
           <div class="info-box bg-yellow">
             <span class="info-box-icon"><i class="fas fa-file-signature"></i></span>
             <div class="info-box-content">
-              <span class="info-box-text"><?php echo $nomer->status ?></span>
+              <span class="info-box-text">Anda sudah melakukan pengisian Formulir</span>
               <span class="info-box-number">Panitia</span>               
               <div class="progress">
                 <div class="progress-bar" style="width : 100% "></div>
               </div>
               <span class="progress-description">
-                Status Pendaftaran
+              <?php if ($nomer) { ?>
+                <?php if ($formulir->foto=='Ya' || $formulir->foto_full=='Ya' || $formulir->rapor=='Ya' || $formulir->akte_kelahiran=='Ya' || $formulir->kartu_keluarga=='Ya' || $formulir->skl_skhu=='Ya' || $formulir->skd=='Ya' || $formulir->sktm=='Ya' || $formulir->ktp_ortu=='Ya' || $formulir->sptjm=='Ya' || $formulir->sp=='Ya' || $formulir->kartu_bantuan=='Ya' || $formulir->berkaslain=='Ya') { ?>
+                    <?php if ($berkas) { ?>
+                          <form action="<?= base_url();?>member/printformulir" method="post" target="blank">
+                            <input type="hidden" class="form-control" name="id_peserta" value="<?php echo $nomer->id_peserta; ?>" /> 
+                            <button type="submit" class="btn btn-primary btn-flat btn-lg">Cetak Bukti Pendaftaran&nbsp; <i class="fa fa-print"></i></button>
+                          </form>
+                    <?php } else { ?>      
+                          <a href="<?= base_url();?>member/berkas" class="small-box-footer">
+                            Upload Berkas dulu&nbsp; <i class="fa fa-arrow-circle-right"></i>  
+                          </a>
+                    <?php } ?>       
+                <?php } else { ?>
+                  <form action="<?= base_url();?>member/printformulir" method="post" target="blank">
+                    <input type="hidden" class="form-control" name="id_peserta" value="<?php echo $nomer->id_peserta; ?>" /> 
+                    <button type="submit" class="btn btn-primary btn-block btn-lg">Cetak Bukti Pendaftaran&nbsp; <i class="fa fa-print"></i></button>
+                  </form>
+                <?php } ?>  
+            <?php } else { ?>
+                <a href="<?= base_url();?>member/formcreate" class="small-box-footer bg-primary">
+                    Cetak Bukti Pendaftaran&nbsp; <i class="fa fa-print"></i>
+                </a>              
+            <?php } ?>
               </span>
             </div>
           </div>
@@ -775,7 +797,17 @@
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="berkebutuhan_khusus_ibu" id="berkebutuhan_khusus_ibu" />
-                          <?php } ?>                          
+                          <?php } ?>
+                          
+                          <?php if ($formulir->nomor_hp=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">No Handphone Orangtua (Aktif dan terhubung WA) <span style="color:red;">*</span><?php echo form_error('nomor_hp') ?></label>
+                                <input type="text" class="form-control" name="nomor_hp" id="nomor_hp" placeholder="No Handphone" />
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="nomor_hp" id="nomor_hp" />
+                          <?php } ?>    
+                          
                           <?php if ($formulir->nama_wali=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Nama Wali <?php echo form_error('nama_wali') ?></label>
@@ -870,14 +902,7 @@
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="no_telepon_rumah" id="no_telepon_rumah" />
                           <?php } ?>                          
-                          <?php if ($formulir->nomor_hp=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">No Handphone <?php echo form_error('nomor_hp') ?></label>
-                                <input type="text" class="form-control" name="nomor_hp" id="nomor_hp" placeholder="No Handphone" />
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="nomor_hp" id="nomor_hp" />
-                          <?php } ?>                          
+                                                
                           <?php if ($formulir->email=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Email <?php echo form_error('email') ?></label>
@@ -896,7 +921,7 @@
                           <!-- isi dengan form sesuai kebutuhan -->
                           <?php if ($formulir->tinggi_badan=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Tinggi Badan <span style="color:red;">*</span> <?php echo form_error('tinggi_badan') ?></label>
+                                <label for="varchar">Tinggi Badan (cm) <span style="color:red;">*</span> <?php echo form_error('tinggi_badan') ?></label>
                                 <input type="text" class="form-control" name="tinggi_badan" id="tinggi_badan" placeholder="Tinggi Badan" required/>
                           </div>
                           <?php } else { ?>
@@ -904,7 +929,7 @@
                           <?php } ?>                          
                           <?php if ($formulir->berat_badan=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Berat Badan <span style="color:red;">*</span> <?php echo form_error('berat_badan') ?></label>
+                                <label for="varchar">Berat Badan (kg) <span style="color:red;">*</span> <?php echo form_error('berat_badan') ?></label>
                                 <input type="text" class="form-control" name="berat_badan" id="berat_badan" placeholder="Berat Badan" required/>
                           </div>
                           <?php } else { ?>
@@ -925,8 +950,8 @@
                           <?php } ?> -->
                           <?php if ($formulir->jumlah_saudara_kandung=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Jumlah saudara kandung <span style="color:red;">*</span> <?php echo form_error('jumlah_saudara_kandung') ?></label>
-                                <input type="text" class="form-control" name="jumlah_saudara_kandung" id="jumlah_saudara_kandung" placeholder="Jumlah saudara kandung" required/>
+                                <label for="varchar">Saudara Kandung yang Ada di Al Bahjah (Tulis Nama Divisi atau "TIDAK ADA")  <span style="color:red;">*</span> <?php echo form_error('jumlah_saudara_kandung') ?></label>
+                                <input type="text" class="form-control" name="jumlah_saudara_kandung" id="jumlah_saudara_kandung" placeholder="Masukkan nama divisi" required/>
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="jumlah_saudara_kandung" id="jumlah_saudara_kandung" />

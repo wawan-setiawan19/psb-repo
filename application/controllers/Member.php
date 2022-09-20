@@ -128,8 +128,16 @@ class Member extends CI_Controller
         $data['panitia'] = $this->Users_model->get_panitia();
         $data['user'] = $this->ion_auth->user()->row();  
         $data['pengaturan'] = $this->Pengaturan_model->get_by_id_1(); 
-	    $data['nomer'] = $this->Peserta_model->nodaftar();            
-	    $data['biodata'] = $this->Peserta_model->biodata_diri();            
+	    $data['nomer'] = $this->Peserta_model->nodaftar();
+		if ($data['nomer']) {
+			$data['biodata'] = $this->Peserta_model->get_by_id($data['nomer']->id_peserta);
+		}
+		if ($data['nomer']) {   
+            $id=$data['nomer']->id_peserta;
+            $data['berkas'] = $this->Berkas_model->get_id($id);         
+        }            
+	    // $data['biodata'] = $this->Peserta_model->biodata_diri();
+
 
         if ($data['formulir']->tipe=="1") {
         	$data['page'] = 'peserta/Form_peserta_wizard';
@@ -163,7 +171,7 @@ class Member extends CI_Controller
         $config['errorlog']     = './assets/'; //string, the default is application/logs/
         $config['imagedir']     = './assets/uploads/image/grcode/'; //direktori penyimpanan qr code
         $config['quality']      = true; //boolean, the default is true
-        $config['size']         = '1024'; //interger, the default is 1024
+        $config['size']         = '2000'; //interger, the default is 1024
         $config['black']        = array(224,255,255); // array, default is array(255,255,255)
         $config['white']        = array(70,130,180); // array, default is array(0,0,0)
         $this->ciqrcode->initialize($config);
@@ -267,8 +275,12 @@ class Member extends CI_Controller
 			$cekno = $this->Peserta_model->get_cek($no_pendaftaran);
 
 			if ($cekno) {
-	            $this->session->set_flashdata('message', 'Terjadi kesalahan sistem, silahkan ulangi');           
-	            redirect(site_url('member/formcreate'));
+	            // $this->session->set_flashdata('message', 'Terjadi kesalahan sistem, silahkan ulangi');           
+	            // redirect(site_url('member/formcreate'));
+				$this->Peserta_model->update($this->input->post('id_users',TRUE),$data);
+	            $this->session->set_flashdata('message', 'Formulir Berhasil diupdate');
+            	helper_log("add", "Mengisi formulir pendaftaran");	            
+	            redirect(site_url('dashboard'));
 			} else {
 				$this->Peserta_model->insert($data);
 	            // $this->Peserta_model->update($this->input->post('id_users',TRUE),$data);
@@ -420,7 +432,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('jenis_ekstrakurikuler', 'jenis ekstrakurikuler', 'trim');
 		$this->form_validation->set_rules('tinggi_badan', 'tinggi badan', 'trim|numeric');
 		$this->form_validation->set_rules('berat_badan', 'berat badan', 'trim|numeric');
-		$this->form_validation->set_rules('jumlah_saudara_kandung', 'jumlah saudara kandung', 'trim|numeric');
+		$this->form_validation->set_rules('jumlah_saudara_kandung', 'jumlah saudara kandung', 'trim');
 		$this->form_validation->set_rules('id_jurusan', 'jurusan pilihan satu', 'trim');
 		$this->form_validation->set_rules('pilihan_dua', 'jurusan pilihan dua', 'trim');
 		// $this->form_validation->set_rules('id_sekolah', 'sekolah', 'trim');
@@ -557,7 +569,7 @@ class Member extends CI_Controller
 	{
 		$config['upload_path']          = './assets/uploads/attachment/';
 		$config['allowed_types']        = 'gif|jpg|png|pdf';
-		$config['max_size']             = 2000;
+		$config['max_size']             = 5000;
 		// $config['max_width']            = 2048;
 		// $config['max_height']           = 1000;
 		$config['encrypt_name'] 		= true;

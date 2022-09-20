@@ -77,7 +77,7 @@
         </tr>                                                            
     </table>
     <?php $th = $peserta->tahun_pelajaran + 1; ?>
-	<h3 style="text-align: center">FORMULIR PENERIMAAN PESERTA DIDIK BARU<br>
+	<h3 style="text-align: center">FORMULIR PENERIMAAN SANTRI BARU<br>
 	TAHUN PELAJARAN <?php echo $peserta->tahun_pelajaran ?>/<?php echo $th ?></h3>	
     <table class="word-table" style="margin-bottom: 10px">	
 		<tr>		    
@@ -453,11 +453,11 @@
 		    <td style="border-bottom: 1px dotted"><?php echo $peserta->berat_badan ?></td>
 		</tr>
 	<?php } ?>
-		<tr> 		 
+		<!-- <tr> 		 
 		    <td>Jarak ke sekolah</td>
 		    <td>: </td>
 		    <td style="border-bottom: 1px dotted"><?php echo $peserta->jarak ?></td>
-		</tr>
+		</tr> -->
 	<?php if ($formulir->jumlah_saudara_kandung=='Ya'){ ?>			
 		<tr> 	 
 		    <td>Jumlah saudara kandung</td>

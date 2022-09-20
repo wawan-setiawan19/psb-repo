@@ -95,7 +95,7 @@
                 <div class="col-xs-12 col-md-12">
                   <?php if ($formulir->foto=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Foto Berwarna 3x4</label>
+                        <label for="varchar">Foto Berwarna 3x4 <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Foto 3x4"/>
@@ -103,7 +103,7 @@
                   <?php } ?>
                   <?php if ($formulir->foto_full=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Foto Seluruh Badan</label>
+                        <label for="varchar">Foto Seluruh Badan <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Foto Seluruh Badan"/>
@@ -111,7 +111,7 @@
                   <?php } ?>
                   <?php if ($formulir->skl_skhu=='Ya'){ ?>  
                       <div class="form-group">
-                        <label for="varchar">SKL/SKHU/Ijazah</label>
+                        <label for="varchar">SKL/SKHU/Ijazah <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="SKL/SKHU/Ijazah" />
@@ -119,7 +119,7 @@
                   <?php } ?>
                   <?php if ($formulir->rapor=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Nilai Rapor Semester 1-5</label>
+                        <label for="varchar">Rapor <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Nilai Rapor/Semester"/>
@@ -127,7 +127,7 @@
                   <?php } ?>
                   <?php if ($formulir->akte_kelahiran=='Ya'){ ?>
                       <div class="form-group">                      
-                        <label for="varchar">Akta Kelahiran</label>
+                        <label for="varchar">Akta Kelahiran <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Akta Kelahiran" />  
@@ -135,7 +135,7 @@
                   <?php } ?>
                   <?php if ($formulir->kartu_keluarga=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Kartu Keluarga</label>
+                        <label for="varchar">Kartu Keluarga <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />  
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Kartu Keluarga" /> 
@@ -143,7 +143,7 @@
                   <?php } ?>  
                   <?php if ($formulir->ktp_ortu=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">KTP Orangtua</label>
+                        <label for="varchar">KTP Orangtua <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />  
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="KTP Orangtua" /> 
@@ -151,7 +151,7 @@
                   <?php } ?>
                   <?php if ($formulir->sptjm=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Surat Pertanggungjawaban Mutlak Orangtua</label>
+                        <label for="varchar">Surat Pertanggungjawaban Mutlak Orangtua <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />  
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Surat Pertanggungjawaban Mutlak Orangtua" /> 

@@ -33,7 +33,7 @@
 							<tr><td>Tahun Pelajaran</td><td><?php echo $tahun_pelajaran; ?></td></tr>    
 							<tr><td>Jalur Pendaftaran</td><td><?php echo $jalur; ?></td></tr>
 							<tr><td>Sekolah Pilihan 2</td><td><?php echo $pilihan_sekolah_lain; ?></td></tr>
-							<tr><td>Jurusan Pilihan Satu</td><td><?php echo $nama_jurusan; ?></td></tr>
+							<!-- <tr><td>Jurusan Pilihan Satu</td><td><?php echo $nama_jurusan; ?></td></tr> -->
 							<tr><td>Jurusan Pilihan Dua</td><td><?php echo $pilihan_dua; ?></td></tr>
 							<tr><td>Asal Sekolah</td><td><?php echo $asal_sekolah; ?></td></tr>
 							<tr><td>No Ujian Nasional</td><td><?php echo $no_un; ?></td></tr>
@@ -109,7 +109,7 @@
 							<tr><td><span class="label label-success">Data Priodik</span></td><td></td></tr>				    
 							<tr><td>Tinggi Badan</td><td><?php echo $tinggi_badan.' cm'; ?></td></tr>
 							<tr><td>Berat Badan</td><td><?php echo $berat_badan.' kg'; ?></td></tr>
-							<tr><td>Jarak ke sekolah</td><td><?php echo $jarak; ?></td></tr>				    
+							<!-- <tr><td>Jarak ke sekolah</td><td><?php echo $jarak; ?></td></tr>				     -->
 							<tr><td>Jumlah Saudara Kandung</td><td><?php echo $jumlah_saudara_kandung; ?></td></tr>
 							<tr><td><span class="label label-success">Data Nilai</span></td><td></td></tr>				    
 							<tr><td>Nilai Rapor</td><td><?php echo $nilai_rapor; ?></td></tr>	

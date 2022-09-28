@@ -72,9 +72,7 @@
                         <div class="form-group">                      
                           <input type="checkbox" name="jalur_pendaftaran" id="jalur_pendaftaran" value="Ya" checked required>&nbsp; Jalur Pendaftaran 
                         </div>   
-                        <div class="form-group">                      
-                          <input type="checkbox" name="asal_sekolah" id="asal_sekolah" value="Ya" checked required>&nbsp; Asal Sekolah
-                        </div>                                     
+                        
                         <div class="form-group">                      
                           <input type="checkbox" name="no_peserta_ujian" id="no_peserta_ujian" value="Ya" <?php if ($formulir->no_peserta_ujian=='Ya') { echo 'checked'; } ?>>&nbsp; No Peserta UN 
                         </div>     
@@ -95,7 +93,10 @@
                         </div>
                         <div class="form-group">                      
                           <input type="checkbox" name="nama_peserta" id="nama_peserta" value="Ya" checked required>&nbsp; Nama Peserta
-                        </div> 
+                        </div>
+                        <div class="form-group">                      
+                          <input type="checkbox" name="asal_sekolah" id="asal_sekolah" value="Ya" checked required>&nbsp; Asal Sekolah
+                        </div>                                      
                         <div class="form-group">                      
                           <input type="checkbox" name="jenis_kelamin" id="jenis_kelamin" value="Ya" checked required>&nbsp; Jenis Kelamin
                         </div>                                         
@@ -112,7 +113,7 @@
                           <input type="checkbox" name="tanggal_lahir" id="tanggal_lahir" value="Ya" checked required>&nbsp; Tanggal Lahir 
                         </div> 
                         <div class="form-group">                      
-                          <input type="checkbox" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" value="Ya" <?php if ($formulir->no_registrasi_akta_lahir=='Ya') { echo 'checked'; } ?>>&nbsp; No Registrasi Akta Lahir
+                          <input type="checkbox" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" value="Ya" <?php if ($formulir->no_registrasi_akta_lahir=='Ya') { echo 'checked'; } ?>>&nbsp; No KK
                         </div>                                         
                         <div class="form-group">                      
                           <input type="checkbox" name="agama" id="agama" value="Ya" checked required>&nbsp; Agama  
@@ -121,7 +122,7 @@
                           <input type="checkbox" name="kewarganegaraan" id="kewarganegaraan" value="Ya" <?php if ($formulir->kewarganegaraan=='Ya') { echo 'checked'; } ?>>&nbsp; Kewarganegaraan
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="berkebutuhan_khusus" id="berkebutuhan_khusus" value="Ya" <?php if ($formulir->berkebutuhan_khusus=='Ya') { echo 'checked'; } ?>>&nbsp; Berkebutuhan Khusus  
+                          <input type="checkbox" name="berkebutuhan_khusus" id="berkebutuhan_khusus" value="Ya" <?php if ($formulir->berkebutuhan_khusus=='Ya') { echo 'checked'; } ?>>&nbsp; Riwayat  Kesahatan
                         </div> 
                         <div class="form-group">                      
                           <input type="checkbox" name="alamat" id="alamat" value="Ya" checked required>&nbsp; Alamat 
@@ -145,28 +146,28 @@
                           <input type="checkbox" name="kode_pos" id="kode_pos" value="Ya" <?php if ($formulir->kode_pos=='Ya') { echo 'checked'; } ?>>&nbsp; Kode Pos  
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="latitude" id="latitude" value="Ya" <?php if ($formulir->latitude=='Ya') { echo 'checked'; } ?>>&nbsp; Latitude  
+                          <input type="checkbox" name="latitude" id="latitude" value="Ya" <?php if ($formulir->latitude=='Ya') { echo 'checked'; } ?>>&nbsp; Kabupaten/Kota  
                         </div> 
                         <div class="form-group">                      
-                          <input type="checkbox" name="longitude" id="longitude" value="Ya" <?php if ($formulir->longitude=='Ya') { echo 'checked'; } ?>>&nbsp; Longitude  
+                          <input type="checkbox" name="longitude" id="longitude" value="Ya" <?php if ($formulir->longitude=='Ya') { echo 'checked'; } ?>>&nbsp; Provinsi  
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="tempat_tinggal" id="tempat_tinggal" value="Ya" <?php if ($formulir->tempat_tinggal=='Ya') { echo 'checked'; } ?>>&nbsp; Tempat Tinggal  
+                          <input type="checkbox" name="tempat_tinggal" id="tempat_tinggal" value="Ya" <?php if ($formulir->tempat_tinggal=='Ya') { echo 'checked'; } ?>>&nbsp; Alamat Sekolah  
                         </div>
                         <div class="form-group">                      
                           <input type="checkbox" name="moda_transportasi" id="moda_transportasi" value="Ya" <?php if ($formulir->moda_transportasi=='Ya') { echo 'checked'; } ?>>&nbsp; Moda Transportasi  
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="no_kks" id="no_kks" value="Ya" <?php if ($formulir->no_kks=='Ya') { echo 'checked'; } ?>>&nbsp; No KKS  
+                          <input type="checkbox" name="no_kks" id="no_kks" value="Ya" <?php if ($formulir->no_kks=='Ya') { echo 'checked'; } ?>>&nbsp; Masuk Ke Kelas  
                         </div> 
                         <div class="form-group">                      
                           <input type="checkbox" name="anak_ke" id="anak_ke" value="Ya" <?php if ($formulir->anak_ke=='Ya') { echo 'checked'; } ?>>&nbsp; Anak ke   
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="penerima_kps_pkh" id="penerima_kps_pkh" value="Ya" <?php if ($formulir->penerima_kps_pkh=='Ya') { echo 'checked'; } ?>>&nbsp; Penerima KPS/PKH  
+                          <input type="checkbox" name="penerima_kps_pkh" id="penerima_kps_pkh" value="Ya" <?php if ($formulir->penerima_kps_pkh=='Ya') { echo 'checked'; } ?>>&nbsp; Status saudara kandung  
                         </div>
                         <div class="form-group">                      
-                          <input type="checkbox" name="no_kps_pkh" id="no_kps_pkh" value="Ya" <?php if ($formulir->no_kps_pkh=='Ya') { echo 'checked'; } ?>>&nbsp; No KPS/PKH  
+                          <input type="checkbox" name="no_kps_pkh" id="no_kps_pkh" value="Ya" <?php if ($formulir->no_kps_pkh=='Ya') { echo 'checked'; } ?>>&nbsp; Divisi saudara kandung  
                         </div>                                         
                         <div class="form-group">                      
                           <input type="checkbox" name="penerima_kip" id="penerima_kip" value="Ya" <?php if ($formulir->penerima_kip=='Ya') { echo 'checked'; } ?>>&nbsp; Penerima KIP  
@@ -181,7 +182,7 @@
                           <input type="checkbox" name="terima_fisik_kartu_kip" id="terima_fisik_kartu_kip" value="Ya" <?php if ($formulir->terima_fisik_kartu_kip=='Ya') { echo 'checked'; } ?>>&nbsp; Terima fisik kartu KIP   
                         </div>                                         
                         <div class="form-group">                      
-                          <input type="checkbox" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" value="Ya" <?php if ($formulir->jenis_ekstrakurikuler=='Ya') { echo 'checked'; } ?>>&nbsp; Hobi
+                          <input type="checkbox" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" value="Ya" <?php if ($formulir->jenis_ekstrakurikuler=='Ya') { echo 'checked'; } ?>>&nbsp; Golongan Darah
                         </div>
                       </div> 
 
@@ -196,7 +197,7 @@
                           <input type="checkbox" name="nik_ayah" id="nik_ayah" value="Ya" <?php if ($formulir->nik_ayah=='Ya') { echo 'checked'; } ?>>&nbsp; NIK Ayah
                         </div>   
                         <div class="form-group">                      
-                          <input type="checkbox" name="tahun_lahir_ayah" id="tahun_lahir_ayah" value="Ya" <?php if ($formulir->tahun_lahir_ayah=='Ya') { echo 'checked'; } ?>>&nbsp; Tahun Lahir Ayah
+                          <input type="checkbox" name="tahun_lahir_ayah" id="tahun_lahir_ayah" value="Ya" <?php if ($formulir->tahun_lahir_ayah=='Ya') { echo 'checked'; } ?>>&nbsp; Jumlah Tanggungan
                         </div>
                         <div class="form-group">                      
                           <input type="checkbox" name="pendidikan_ayah" id="pendidikan_ayah" value="Ya" <?php if ($formulir->pendidikan_ayah=='Ya') { echo 'checked'; } ?>>&nbsp; Pendidikan Ayah 
@@ -246,7 +247,7 @@
                           <input type="checkbox" name="nik_wali" id="nik_wali" value="Ya" <?php if ($formulir->nik_wali=='Ya') { echo 'checked'; } ?>>&nbsp; NIK Wali   
                         </div> 
                         <div class="form-group">                      
-                          <input type="checkbox" name="tahun_lahir_wali" id="tahun_lahir_wali" value="Ya" <?php if ($formulir->tahun_lahir_wali=='Ya') { echo 'checked'; } ?>>&nbsp; Tahun Lahir Wali 
+                          <input type="checkbox" name="tahun_lahir_wali" id="tahun_lahir_wali" value="Ya" <?php if ($formulir->tahun_lahir_wali=='Ya') { echo 'checked'; } ?>>&nbsp; Jumlah Tanggungan
                         </div>                    
                         <div class="form-group">                      
                           <input type="checkbox" name="pendidikan_wali" id="pendidikan_wali" value="Ya" <?php if ($formulir->pendidikan_wali=='Ya') { echo 'checked'; } ?>>&nbsp; Pendidikan Wali

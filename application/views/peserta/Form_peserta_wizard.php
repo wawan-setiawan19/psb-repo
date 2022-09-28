@@ -224,20 +224,7 @@
                                 <input type="hidden" class="form-control" name="pilihan_dua" id="pilihan_dua"/>
                           <?php } ?>  
 <!-- end pilihan jurusan -->                                                       
-                          <?php if ($formulir->asal_sekolah=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="int">Asal Sekolah <span style="color:red;">*</span></label>
-                                <input type="text" class="form-control" name="asal_sekolah" id="asal_sekolah" placeholder="Masukkan Asal Sekolah" value=""/>
-                                <!-- <select type="text" class="select2 form-control" name="id_sekolah" id="id_sekolah" placeholder="Asal Sekolah" value="" required/>
-                                    <option value="">Pilih Asal Sekolah</option>
-                                    <?php foreach ($sekolah as $key => $value) { ?>
-                                        <option value="<?= $value->id_sekolah;?>">
-                                            <?= $value->npsn_sekolah;?> | <?= $value->asal_sekolah;?> | <?= $value->kecamatan;?>
-                                        </option>
-                                    <?php }?>
-                                </select> -->
-                          </div>
-                          <?php } ?>
+                          
                           <?php if ($formulir->no_peserta_ujian=='Ya'){ ?>
                             <div class="form-group">
                                   <label for="varchar">No Peserta Ujian Nasional <span style="color:red;">*</span> <?php echo form_error('no_un') ?></label>
@@ -268,13 +255,33 @@
                           <h2>Form Data Pribadi</h2>
                           <div class="callout callout-info">
                                 <p>CATATAN : isian dengan tanda <span style="color:red;"><strong>* wajib diisi.</strong></span></p>
-                          </div>                          
+                          </div>
+
                           <?php if ($formulir->nama_peserta=='Ya'){ ?>
                             <div class="form-group">
                                   <label for="varchar">Nama Peserta <span style="color:red;">*</span> <?php echo form_error('nama_peserta') ?></label>
                                   <input type="text" class="form-control" name="nama_peserta" id="nama_peserta" placeholder="Nama Peserta" required/>
                             </div>
                           <?php } ?>
+
+                          <?php if ($formulir->nik=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">NIK <span style="color:red;">*</span> <?php echo form_error('nik') ?></label>
+                                <input type="text" class="form-control" name="nik" id="nik" placeholder="NIK harus tepat 16 karakter" required/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="nik" id="nik" />
+                          <?php } ?>
+
+                          <?php if ($formulir->no_registrasi_akta_lahir=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">No KK <span style="color:red;">*</span> <?php echo form_error('no_registrasi_akta_lahir') ?></label>
+                                <input type="text" class="form-control" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" placeholder="No KK" />
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" />
+                          <?php } ?>
+
                           <?php if ($formulir->jenis_kelamin=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Jenis Kelamin <span style="color:red;">*</span> <?php echo form_error('jenis_kelamin') ?></label>   
@@ -287,18 +294,10 @@
                           <?php } ?>
                           <?php if ($formulir->nisn=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">NISN <span style="color:red;">*</span> <?php echo form_error('nisn') ?></label>
-                                <input type="text" class="form-control" name="nisn" id="nisn" placeholder="NISN harus tepat 10 karakter" value="<?php echo $user->username; ?>" readonly/>
+                                <input type="hidden" class="form-control" name="nisn" id="nisn" placeholder="NISN harus tepat 10 karakter" value="<?php echo $user->username; ?>" readonly/>
                           </div>
                           <?php } ?>
-                          <?php if ($formulir->nik=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">NIK <span style="color:red;">*</span> <?php echo form_error('nik') ?></label>
-                                <input type="text" class="form-control" name="nik" id="nik" placeholder="NIK harus tepat 16 karakter" required/>
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="nik" id="nik" />
-                          <?php } ?>
+                          
                           <?php if ($formulir->tempat_lahir=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Tempat Lahir <span style="color:red;">*</span> <?php echo form_error('tempat_lahir') ?></label>
@@ -311,26 +310,12 @@
                                 <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" placeholder="Tanggal Lahir" required/>
                           </div>
                           <?php } ?>
-                          <?php if ($formulir->no_registrasi_akta_lahir=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">No Registrasi Akta Lahir <?php echo form_error('no_registrasi_akta_lahir') ?></label>
-                                <input type="text" class="form-control" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" placeholder="No Registrasi Akta Lahir" />
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="no_registrasi_akta_lahir" id="no_registrasi_akta_lahir" />
-                          <?php } ?>                          
+
+                          
+
                           <?php if ($formulir->agama=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Agama <span style="color:red;">*</span> <?php echo form_error('agama') ?></label>
-                                <!-- <select type="text" class="form-control" name="agama" id="agama" placeholder="Agama" value="" required/>
-                                        <option value="">Pilih Agama</option>
-                                        <option value="Islam">Islam</option>
-                                        <option value="Kristen">Kristen</option>
-                                        <option value="Khatolik">Khatolik</option>
-                                        <option value="Hindu">Hindu</option>
-                                        <option value="Budha">Budha</option>
-                                        <option value="Konghucu">Konghuchu</option>
-                                </select> -->
                                 <input type="text" class="form-control" name="agama" id="agama" placeholder="NISN harus tepat 10 karakter" value="ISLAM" readonly/>
                           </div>
                           <?php } ?>
@@ -345,38 +330,90 @@
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="kewarganegaraan" id="kewarganegaraan" />
-                          <?php } ?>                          
-                          <?php if ($formulir->berkebutuhan_khusus=='Ya'){ ?>
+                          <?php } ?>
+                          
+                          <?php if ($formulir->anak_ke=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Berkebutuhan Khusus <span style="color:red;">*</span> <?php echo form_error('berkebutuhan_khusus') ?></label>
-                                <select type="text" class="form-control" name="berkebutuhan_khusus" id="berkebutuhan_khusus" placeholder="Berkebutuhan Khusus" value="" required/>
-                                        <option value="">Pilih</option>
+                                <label for="varchar">Anak ke <span style="color:red;">*</span> <?php echo form_error('anak_ke') ?></label>
+                                <input type="text" class="form-control" name="anak_ke" id="anak_ke" placeholder="Anak ke" required/>
+                                <label for="varchar">Dari <span style="color:red;">*</span> <?php echo form_error('jumlah_saudara') ?></label>
+                                <input type="text" class="form-control" name="jumlah_saudara" id="jumlah_saudara" placeholder="Total Saudara Kandung" required/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="anak_ke" id="anak_ke" />
+                          <?php } ?>
+                          
+                          <?php if ($formulir->penerima_kps_pkh=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">Saudara kandung yang ada di Al Bahjah Formal <span style="color:red;">*</span> <?php echo form_error('penerima_kps_pkh') ?></label>
+                                <select type="text" class="form-control" name="penerima_kps_pkh" id="penerima_kps_pkh" placeholder="Penerima KPS/PKH" value="" required/>
+                                        <option value="">Ada/Tidak?</option>
+                                        <option value="Ada">Ada</option>
                                         <option value="Tidak">Tidak</option>
-                                        <option value="Netra">Netra</option>
-                                        <option value="Rungu">Rungu</option>
-                                        <option value="Grahita Ringan">Grahita Ringan</option>
-                                        <option value="Grahita Sedang">Grahita Sedang</option>
-                                        <option value="Daksa Ringan">Daksa Ringan</option>
-                                        <option value="Daksa Sedang">Daksa Sedang</option>
-                                        <option value="Laras">Laras</option>
-                                        <option value="Wicara">Wicara</option>
-                                        <option value="Tuna Ganda">Tuna Ganda</option>
-                                        <option value="Hiper Aktif">Hiper Aktif</option>
-                                        <option value="Cerdas Istimewa">Cerdas Istimewa</option>
-                                        <option value="Bakat Istimewa">Bakat Istimewa</option>
-                                        <option value="Kesulitan belajar">Kesulitan belajar</option>
-                                        <option value="Narkoba">Narkoba</option>
-                                        <option value="Indigo">Indigo</option>
-                                        <option value="Down Sindrome">Down Sindrome</option>
-                                        <option value="Autis">Autis</option>                 
                                 </select>
                           </div>
                           <?php } else { ?>
-                                <input type="hidden" class="form-control" name="berkebutuhan_khusus" id="berkebutuhan_khusus" />
-                          <?php } ?>                                                                          
+                                <input type="hidden" class="form-control" name="penerima_kps_pkh" id="penerima_kps_pkh" />
+                          <?php } ?>                          
+                          <?php if ($formulir->no_kps_pkh=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">Divisi <?php echo form_error('no_kps_pkh') ?></label>
+                                <input type="text" class="form-control" name="no_kps_pkh" id="no_kps_pkh" placeholder="Nama Divisi" />
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="no_kps_pkh" id="no_kps_pkh" />
+                          <?php } ?>
+
+                          <?php if ($formulir->jenis_ekstrakurikuler=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">Golongan Darah <span style="color:red;">*</span> <?php echo form_error('jenis_ekstrakurikuler') ?></label>
+                                <input type="text" class="form-control" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" placeholder="Golongan Darah" required/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" />
+                          <?php } ?>
+                          
+                          <?php if ($formulir->no_kks=='Ya'){
+                              $readonly = 'readonly';
+                              if ($user->tujuan == 'SDIQu') {
+                                    $readonly = '';
+                                    $kelas_masuk = '1';
+                              }
+                              if ($user->tujuan == 'SMPIQu') {
+                                    $kelas_masuk = '7';
+                              }
+                              if ($user->tujuan == 'SMAIQu') {
+                                    $kelas_masuk = '10';
+                              }
+                          ?>
+                          <div class="form-group">
+                                <label for="varchar">Masuk Ke Kelas <?php echo form_error('no_kks') ?></label>
+                                <input type="text" class="form-control" name="no_kks" id="no_kks" placeholder="Masukan Angka Kelas" value="<?= $kelas_masuk?>" <?= $readonly?>/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="no_kks" id="no_kks" />
+                          <?php } ?>
+                          
+                          <?php if ($formulir->asal_sekolah=='Ya'){?>
+                          <div class="form-group">
+                                <label for="int">Asal Sekolah <span style="color:red;">*</span></label>
+                                <input type="text" class="form-control" name="asal_sekolah" id="asal_sekolah" placeholder="Masukkan Asal Sekolah" value=""/>
+                          </div>
+                          <?php } ?>
+
+                          <?php if ($formulir->tempat_tinggal=='Ya'){ ?>
+                          <div class="form-group">
+                          <label for="varchar">Alamat Sekolah<span style="color:red;">*</span> <?php echo form_error('alamat') ?></label>
+                                <input type="text" class="form-control" name="tempat_tinggal" id="tempat_tinggal" placeholder="Alamat Sekolah" required/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="tempat_tinggal" id="tempat_tinggal" />
+                          <?php } ?>
+                          
+                                                                                                  
                           <?php if ($formulir->alamat=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Alamat <span style="color:red;">*</span> <?php echo form_error('alamat') ?></label>
+                                <label for="varchar">Alamat Santri<span style="color:red;">*</span> <?php echo form_error('alamat') ?></label>
                                 <input type="text" class="form-control" name="alamat" id="alamat" placeholder="Alamat" required/>
                           </div>
                           <?php } ?>
@@ -430,43 +467,21 @@
                           <?php } ?>                          
                           <?php if ($formulir->latitude=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar"></label>
-                                <button type="button" class="btn bg-green btn-flat" data-toggle="modal" data-target="#myModalLokasi">
-                                <i class="fas fa-map-marker-alt"></i>&nbsp; Koordinat Lokasi Rumah
-                                </button>
-                          </div>
-                          <div class="form-group">
-                                <label for="varchar">Latitude <?php echo form_error('latitude') ?></label>
-                                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Latitude" />
+                                <label for="varchar">Kabupaten/Kota <?php echo form_error('latitude') ?></label>
+                                <input type="text" class="form-control" name="latitude" id="latitude" placeholder="Kabupaten/Kota" />
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="latitude" id="latitude" />
                           <?php } ?>                          
                           <?php if ($formulir->longitude=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Longitude <?php echo form_error('longitude') ?></label>
-                                <input type="text" class="form-control" name="longitude" id="longitude" placeholder="Longitude" />
+                                <label for="varchar">Provinsi <?php echo form_error('longitude') ?></label>
+                                <input type="text" class="form-control" name="longitude" id="longitude" placeholder="Provinsi" />
                           </div>                        
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="longitude" id="longitude" />
                           <?php } ?>                          
-                          <?php if ($formulir->tempat_tinggal=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">Tempat Tinggal <span style="color:red;">*</span> <?php echo form_error('tempat_tinggal') ?></label>
-                                <select type="text" class="form-control" name="tempat_tinggal" id="tempat_tinggal" placeholder="Tempat Tinggal" value="" required/>
-                                        <option value="">Pilih Tempat Tinggal</option>
-                                        <option value="Bersama orangtua">Bersama orangtua</option>
-                                        <option value="Wali">Wali</option>
-                                        <option value="Kos">Kos</option>
-                                        <option value="Asrama">Asrama</option>
-                                        <option value="Panti Asuhan">Panti Asuhan</option>
-                                        <option value="Pesantren">Pesantren</option>
-                                        <option value="Lainnya">Lainnya</option>
-                                </select>
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="tempat_tinggal" id="tempat_tinggal" />
-                          <?php } ?>                          
+                                                    
                           <?php if ($formulir->moda_transportasi=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Moda Transportasi <span style="color:red;">*</span> <?php echo form_error('moda_transportasi') ?></label>
@@ -483,42 +498,9 @@
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="moda_transportasi" id="moda_transportasi" />
                           <?php } ?>                          
-                          <?php if ($formulir->no_kks=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">No KKS <?php echo form_error('no_kks') ?></label>
-                                <input type="text" class="form-control" name="no_kks" id="no_kks" placeholder="No KKS harus tepat 6 karakter" />
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="no_kks" id="no_kks" />
-                          <?php } ?>                          
-                          <?php if ($formulir->anak_ke=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">Anak ke <span style="color:red;">*</span> <?php echo form_error('anak_ke') ?></label>
-                                <input type="text" class="form-control" name="anak_ke" id="anak_ke" placeholder="Anak ke" required/>
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="anak_ke" id="anak_ke" />
-                          <?php } ?>                          
-                          <?php if ($formulir->penerima_kps_pkh=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">Penerima KPS/PKH <span style="color:red;">*</span> <?php echo form_error('penerima_kps_pkh') ?></label>
-                                <select type="text" class="form-control" name="penerima_kps_pkh" id="penerima_kps_pkh" placeholder="Penerima KPS/PKH" value="" required/>
-                                        <option value="">Pilih Penerima</option>
-                                        <option value="Ya">Ya</option>
-                                        <option value="Tidak">Tidak</option>
-                                </select>
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="penerima_kps_pkh" id="penerima_kps_pkh" />
-                          <?php } ?>                          
-                          <?php if ($formulir->no_kps_pkh=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">No KPS/PKH <?php echo form_error('no_kps_pkh') ?></label>
-                                <input type="text" class="form-control" name="no_kps_pkh" id="no_kps_pkh" placeholder="No KPS/PKH" />
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="no_kps_pkh" id="no_kps_pkh" />
-                          <?php } ?>                          
+                                                    
+                                                  
+                                                   
                           <?php if ($formulir->penerima_kip=='Ya'){ ?>
                           <div class="form-group">
                                 <label for="varchar">Penerima KIP <span style="color:red;">*</span> <?php echo form_error('penerima_kip') ?></label>
@@ -559,14 +541,7 @@
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="terima_fisik_kartu_kip" id="terima_fisik_kartu_kip" />
                           <?php } ?>                          
-                          <?php if ($formulir->jenis_ekstrakurikuler=='Ya'){ ?>
-                          <div class="form-group">
-                                <label for="varchar">Hobi <span style="color:red;">*</span> <?php echo form_error('jenis_ekstrakurikuler') ?></label>
-                                <input type="text" class="form-control" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" placeholder="Hobi" required/>
-                          </div>
-                          <?php } else { ?>
-                                <input type="hidden" class="form-control" name="jenis_ekstrakurikuler" id="jenis_ekstrakurikuler" />
-                          <?php } ?>                                                   
+                                                                            
                       </div>
 
                       <div id="step-4">
@@ -590,8 +565,8 @@
                           <?php } ?>                          
                           <?php if ($formulir->tahun_lahir_ayah=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Tahun lahir Ayah <span style="color:red;">*</span> <?php echo form_error('tahun_lahir_ayah') ?></label>
-                                <input type="text" class="form-control" name="tahun_lahir_ayah" id="tahun_lahir_ayah" placeholder="Tahun lahir Ayah harus tepat 4 karakter" required/>
+                                <label for="varchar">Jumlah Tanggungan<span style="color:red;">*</span> <?php echo form_error('tahun_lahir_ayah') ?></label>
+                                <input type="text" class="form-control" name="tahun_lahir_ayah" id="tahun_lahir_ayah" placeholder="Jumlah Tanggungan" required/>
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="tahun_lahir_ayah" id="tahun_lahir_ayah" />
@@ -826,8 +801,8 @@
                           <?php } ?>                          
                           <?php if ($formulir->tahun_lahir_wali=='Ya'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Tahun lahir Wali <?php echo form_error('tahun_lahir_wali') ?></label>
-                                <input type="text" class="form-control" name="tahun_lahir_wali" id="tahun_lahir_wali" placeholder="Tahun lahir Wali harus tepat 4 karakter" />
+                                <label for="varchar">Jumlah Tanggungan <?php echo form_error('tahun_lahir_wali') ?></label>
+                                <input type="text" class="form-control" name="tahun_lahir_wali" id="tahun_lahir_wali" placeholder="Jumlah Tanggungan" />
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="tahun_lahir_wali" id="tahun_lahir_wali" />
@@ -931,6 +906,14 @@
                           <div class="form-group">
                                 <label for="varchar">Berat Badan (kg) <span style="color:red;">*</span> <?php echo form_error('berat_badan') ?></label>
                                 <input type="text" class="form-control" name="berat_badan" id="berat_badan" placeholder="Berat Badan" required/>
+                          </div>
+                          <?php } else { ?>
+                                <input type="hidden" class="form-control" name="berat_badan" id="berat_badan" />
+                          <?php } ?>                          
+                          <?php if ($formulir->berat_badan=='Ya'){ ?>
+                          <div class="form-group">
+                                <label for="varchar">Riwayat Kesehatan<span style="color:red;">*</span> <?php echo form_error('berat_badan') ?></label>
+                                <input type="text" class="form-control" name="berkebutuhan_khusus" id="berkebutuhan_khusus" placeholder="Riwayat Kesehatan" required/>
                           </div>
                           <?php } else { ?>
                                 <input type="hidden" class="form-control" name="berat_badan" id="berat_badan" />

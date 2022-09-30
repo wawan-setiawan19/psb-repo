@@ -2,6 +2,7 @@
 
 if (!defined('BASEPATH'))
     exit('No direct script access allowed');
+	use Mpdf\Mpdf;
 
 class Member extends CI_Controller
 {
@@ -398,7 +399,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('longitude', 'longitude', 'trim');
 		$this->form_validation->set_rules('tempat_tinggal', 'tempat tinggal', 'trim');
 		$this->form_validation->set_rules('moda_transportasi', 'moda transportasi', 'trim');
-		$this->form_validation->set_rules('no_kks', 'no kks', 'trim|exact_length[6]');
+		$this->form_validation->set_rules('no_kks', 'no kks', 'trim');
 		$this->form_validation->set_rules('anak_ke', 'anak ke', 'trim|numeric');
 		$this->form_validation->set_rules('penerima_kps_pkh', 'penerima kps pkh', 'trim');
 		$this->form_validation->set_rules('no_kps_pkh', 'no kps pkh', 'trim');
@@ -408,7 +409,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('terima_fisik_kartu_kip', 'terima fisik kartu kip', 'trim');
 		$this->form_validation->set_rules('nama_ayah', 'nama ayah', 'trim');
 		$this->form_validation->set_rules('nik_ayah', 'nik ayah', 'trim|numeric|exact_length[16]');
-		$this->form_validation->set_rules('tahun_lahir_ayah', 'tahun lahir ayah', 'trim|numeric|exact_length[4]');
+		$this->form_validation->set_rules('tahun_lahir_ayah', 'tahun lahir ayah', 'trim');
 		$this->form_validation->set_rules('pendidikan_ayah', 'pendidikan ayah', 'trim');
 		$this->form_validation->set_rules('pekerjaan_ayah', 'pekerjaan ayah', 'trim');
 		$this->form_validation->set_rules('penghasilan_bulanan_ayah', 'penghasilan bulanan ayah', 'trim');
@@ -422,7 +423,7 @@ class Member extends CI_Controller
 		$this->form_validation->set_rules('berkebutuhan_khusus_ibu', 'berkebutuhan khusus ibu', 'trim');
 		$this->form_validation->set_rules('nama_wali', 'nama wali', 'trim');
 		$this->form_validation->set_rules('nik_wali', 'nik wali', 'trim|numeric|exact_length[16]');
-		$this->form_validation->set_rules('tahun_lahir_wali', 'tahun lahir wali', 'trim|numeric|exact_length[4]');
+		$this->form_validation->set_rules('tahun_lahir_wali', 'tahun lahir wali', 'trim');
 		$this->form_validation->set_rules('pendidikan_wali', 'pendidikan wali', 'trim');
 		$this->form_validation->set_rules('pekerjaan_wali', 'pekerjaan wali', 'trim');
 		$this->form_validation->set_rules('penghasilan_bulanan_wali', 'penghasilan bulanan wali', 'trim');
@@ -469,7 +470,9 @@ class Member extends CI_Controller
         $data['formulir'] =  $this->Formulir_model->get_by_id_1();
         helper_log("print", "Cetak bukti pendaftaran");
         
-		$mpdf = new \Mpdf\Mpdf(['format' => 'Legal']);
+		
+		// require_once __DIR__ . '/vendor/autoload.php';
+		$mpdf = new mPDF();
 		$html = $this->load->view('peserta/Print_formulir', $data,true);
 		$mpdf->WriteHTML($html);
 		$mpdf->Output('formulir.pdf','I');    

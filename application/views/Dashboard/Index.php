@@ -15,8 +15,28 @@
       <div class="row">
         <div class="col-xs-12">
           <div class="callout callout-info">
-          <?php if ($kuotax) { ?>  
-            Jadwal PPDB : <?php echo date('d F Y', strtotime($kuotax->tanggal_mulai_pendaftaran)) ?> s.d. <?php echo date('d F Y', strtotime($kuotax->tanggal_selesai_pendaftaran)) ?>, <br> Pengumuman : <?php echo date('d F Y', strtotime($kuotax->tanggal_pengumuman)) ?>, <br> Daftar Ulang : <?php echo date('d F Y', strtotime($kuotax->tanggal_mulai_daftar_ulang)) ?> s.d. <?php echo date('d F Y', strtotime($kuotax->tanggal_selesai_daftar_ulang)) ?>
+          <?php if ($kuotax) { 
+            function tgl_indo($tanggal){
+              $bulan = array (
+                1 =>   'Januari',
+                'Februari',
+                'Maret',
+                'April',
+                'Mei',
+                'Juni',
+                'Juli',
+                'Agustus',
+                'September',
+                'Oktober',
+                'November',
+                'Desember'
+              );
+              $pecahkan = explode('-', $tanggal);
+             
+              return $pecahkan[2] . ' ' . $bulan[ (int)$pecahkan[1] ] . ' ' . $pecahkan[0];
+            }
+            ?>  
+            Jadwal PSB : <?php echo tgl_indo(date('Y-m-d', strtotime($kuotax->tanggal_mulai_pendaftaran))) ?> s.d. <?php echo tgl_indo(date('Y-m-d', strtotime($kuotax->tanggal_selesai_pendaftaran))) ?>, <br> Pengumuman : <?php echo tgl_indo(date('Y-m-d', strtotime($kuotax->tanggal_pengumuman))) ?>, <br> Daftar Ulang : <?php echo tgl_indo(date('Y-m-d', strtotime($kuotax->tanggal_mulai_daftar_ulang))) ?> s.d. <?php echo tgl_indo(date('Y-m-d', strtotime($kuotax->tanggal_selesai_daftar_ulang))) ?>
           <?php } else { ?>
             Tahun Penerimaan belum diaktifkan
           <?php } ?>  

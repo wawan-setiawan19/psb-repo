@@ -43,6 +43,12 @@ class Jurusan_model extends CI_Model
         return $this->db->get($this->table)->row();
     }
 
+    function get_link($sekolah, $jenis_kelamin) {
+        $this->db->like('nama_jurusan',$jenis_kelamin);
+        $this->db->like('bidang_keahlian',$sekolah);
+        return $this->db->get($this->table)->row();
+    }
+
     // get total rows
     function total_rows($q = NULL) {
         $this->db->like('id_jurusan', $q);

@@ -40,7 +40,9 @@ class Dashboard extends CI_Controller {
         $data['pengaturan'] = $this->Pengaturan_model->get_by_id_1();  
         $data['formulir'] =  $this->Formulir_model->get_by_id_1();        
         $data['nomer'] = $this->Peserta_model->nodaftar();  
-
+        if ($data['nomer']) {
+			$data['biodata'] = $this->Peserta_model->get_by_id($data['nomer']->id_peserta);
+		}
         if ($data['nomer']) {   
             $id=$data['nomer']->id_peserta;
             $data['berkas'] = $this->Berkas_model->get_id($id);         

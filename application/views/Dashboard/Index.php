@@ -507,21 +507,7 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
             </a>                     
           </div>
         </div>
-        <div class="col-md-3 col-sm-3 col-xs-12">
-          <div class="small-box bg-purple">
-            <div class="inner">
-              <h3>Prestasi</h3>
-              <p>Peserta</p>
-            </div>
-            <div class="icon">
-              <i class="fas fa-user-graduate"></i>
-            </div>
-<!--             <div class="small-box-footer" data-toggle="modal" data-target="#myModalPrestasi">Tambah Prestasi&nbsp; <i class="fa fa-arrow-circle-right"></i></div> -->
-            <a href="<?= base_url();?>member/prestasipeserta" class="small-box-footer">
-              Tambah Prestasi&nbsp; <i class="fa fa-arrow-circle-right"></i>
-            </a>              
-          </div>
-        </div>
+        
         <div class="col-md-3 col-sm-3 col-xs-12">
           <div class="small-box bg-yellow">
             <div class="inner">
@@ -535,6 +521,27 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
             <a href="<?= base_url();?>member/berkas" class="small-box-footer">
               Upload Berkas&nbsp; <i class="fa fa-arrow-circle-right"></i>  
             </a>                       
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-3 col-xs-12">
+          <div class="small-box bg-purple">
+            <div class="inner">
+              <h3>Gabung Grup</h3>
+              <p>Informasi masing-masing Jenjang</p>
+            </div>
+            <div class="icon">
+              <i class="fas fa-user-graduate"></i>
+            </div>
+            <?php
+              $get_link = $this->Jurusan_model->get_link($biodata->jalur, $biodata->jenis_kelamin);
+              $link_group = '';
+              if ($get_link !== null) {
+                $link_group = $get_link->kuota_jurusan;
+              }
+            ?>
+            <a href="<?= $link_group;?>" class="small-box-footer">
+              Gabung Grup <?=  $biodata->jalur?>&nbsp; <i class="fa fa-arrow-circle-right"></i>
+            </a>              
           </div>
         </div>
         <div class="col-md-3 col-sm-3 col-xs-12">

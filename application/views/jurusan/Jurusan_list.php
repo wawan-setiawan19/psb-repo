@@ -2,7 +2,7 @@
     <div class="col-xs-12 col-md-4">
         <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">Tambah Jurusan</h3>
+                <h3 class="box-title">Tambah Grup</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -14,16 +14,28 @@
             <div class="box-body">
             <form action="<?php echo $action; ?>" method="post">
                 <div class="form-group">
-                    <label for="varchar">Bidang <span style="color:red;">*</span> <?php echo form_error('bidang_keahlian') ?></label>
-                    <input type="text" class="form-control" name="bidang_keahlian" id="bidang_keahlian" placeholder="Bidang Keahlian" value="<?php echo $bidang_keahlian; ?>" required/>
+                    <label for="varchar">Sekolah <span style="color:red;">*</span> <?php echo form_error('bidang_keahlian') ?></label>
+                    <select type="text" class="select2 form-control" name="bidang_keahlian" id="bidang_keahlian" placeholder="Jalur Pendaftaran" value="" required/>
+                                    <option value="">Pilih Sekolah</option>
+                                    <?php foreach ($jalur as $key => $value) { 
+                                          ?>
+                                        <option value="<?= $value->jalur;?>">
+                                            <?= $value->jalur;?>
+                                        </option>
+                                    <?php }?>
+                                </select>
                 </div>
                 <div class="form-group">
-                    <label for="varchar">Nama Jurusan <span style="color:red;">*</span> <?php echo form_error('nama_jurusan') ?></label>
-                    <input type="text" class="form-control" name="nama_jurusan" id="nama_jurusan" placeholder="Nama Jurusan" value="<?php echo $nama_jurusan; ?>" required/>
+                    <label for="varchar">Jenis Kelamin <span style="color:red;">*</span> <?php echo form_error('nama_jurusan') ?></label>
+                    <select type="text" class="form-control" name="nama_jurusan" id="nama_jurusan" placeholder="Jenis Kelamin" value="" required/>
+                                        <option value="">Pilih Jenis Kelamin</option>
+                                        <option value="L">Laki-Laki</option>
+                                        <option value="P">Perempuan</option>
+                                </select> 
                 </div>
                 <div class="form-group">
-                    <label for="varchar">kuota Jurusan <span style="color:red;">*</span> <?php echo form_error('kuota_jurusan') ?></label>
-                    <input type="text" class="form-control" name="kuota_jurusan" id="kuota_jurusan" placeholder="Kuota Jurusan" value="<?php echo $kuota_jurusan; ?>" required/>
+                    <label for="varchar">Link Grup<span style="color:red;">*</span> <?php echo form_error('kuota_jurusan') ?></label>
+                    <input type="text" class="form-control" name="kuota_jurusan" id="kuota_jurusan" placeholder="Link Group" value="<?php echo $kuota_jurusan; ?>" required/>
                 </div>                
                 <input type="hidden" name="id_jurusan" value="<?php echo $id_jurusan; ?>" /> 
                 <button type="submit" class="<?= $this->config->item('botton')?>"><?php echo $button ?></button>
@@ -36,7 +48,7 @@
     <div class="col-xs-12 col-md-8">
         <div class="box box-primary">
             <div class="box-header">
-                <h3 class="box-title">List Jurusan</h3>
+                <h3 class="box-title">List Grup</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse">
                     <i class="fa fa-minus"></i></button>
@@ -70,9 +82,9 @@
                                 <tr>
                                     <th width=""></th>
                                     <th width="10px">No</th>
-                                    <th>Bidang</th>
-    		                        <th>Nama Jurusan</th>
-                                    <th>Kuota</th>
+                                    <th>Sekolah</th>
+    		                        <th>Jenis Kelamin</th>
+                                    <th>Link Grup</th>
     		                        <th width="80px">Action</th>
                                 </tr>
                             </thead>	

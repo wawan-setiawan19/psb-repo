@@ -12,6 +12,7 @@ class Jurusan extends CI_Controller
         $this->layout->auth();
         $this->layout->auth_privilege($c_url);
         $this->load->model('Jurusan_model');
+        $this->load->model('Jalur_model');
         $this->load->model('Pengaturan_model'); 
         $this->load->library('form_validation');        
 	    $this->load->library('datatables');
@@ -33,6 +34,7 @@ class Jurusan extends CI_Controller
         $data['crumb'] = [
             'Jurusan' => '',
         ];
+        $data['jalur'] =$this->Jalur_model->get_all();
 
         $data['code_js'] = 'jurusan/codejs';
         $data['pengaturan']=$this->Pengaturan_model->get_by_id_1();         
@@ -202,7 +204,7 @@ class Jurusan extends CI_Controller
         array(
                 'required'      => 'Nama Jurusan tidak boleh kosong '    
         ));
-    $this->form_validation->set_rules('kuota_jurusan', 'kuota jurusan', 'trim|required|numeric',
+    $this->form_validation->set_rules('kuota_jurusan', 'kuota jurusan', 'trim|required',
         array(
                 'required'      => 'Kuota Jurusan tidak boleh kosong ',
                 'numeric'     => 'Kuota hanya angka '                

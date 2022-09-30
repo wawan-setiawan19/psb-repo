@@ -328,7 +328,7 @@
                           <input type="checkbox" name="ktp_ortu" id="ktp_ortu" value="Ya" <?php if ($formulir->ktp_ortu=='Ya') { echo 'checked'; } ?>>&nbsp; KTP Orangtua
                         </div>
                         <div class="form-group">                      
-                          <input type="checkbox" name="sptjm" id="sptjm" value="Ya" <?php if ($formulir->sptjm=='Ya') { echo 'checked'; } ?>>&nbsp; SPTJM Orangtua
+                          <input type="checkbox" name="sptjm" id="sptjm" value="Ya" <?php if ($formulir->sptjm=='Ya') { echo 'checked'; } ?>>&nbsp; Surat Pernyataan
                         </div>
                         <div class="form-group">                      
                           <input type="checkbox" name="sp" id="sp" value="Ya" <?php if ($formulir->sp=='Ya') { echo 'checked'; } ?>>&nbsp; Surat Penugasan dari Instansi

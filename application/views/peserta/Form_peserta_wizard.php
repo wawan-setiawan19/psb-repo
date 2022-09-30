@@ -176,8 +176,9 @@
                                 <label for="int">Jalur Pendaftaran <span style="color:red;">*</span> <?php echo form_error('id_jalur') ?></label>
                                 <select type="text" class="select2 form-control" name="id_jalur" id="id_jalur" placeholder="Jalur Pendaftaran" value="" required/>
                                     <option value="">Pilih Jalur Pendaftaran</option>
-                                    <?php foreach ($jalur as $key => $value) { ?>
-                                        <option value="<?= $value->id_jalur;?>">
+                                    <?php foreach ($jalur as $key => $value) { 
+                                          ?>
+                                        <option value="<?= $value->id_jalur;?>" <?php if($value->jalur == $user->tujuan) {echo 'selected';} ?>>
                                             <?= $value->jalur;?>
                                         </option>
                                     <?php }?>
@@ -260,7 +261,7 @@
                           <?php if ($formulir->nama_peserta=='Ya'){ ?>
                             <div class="form-group">
                                   <label for="varchar">Nama Peserta <span style="color:red;">*</span> <?php echo form_error('nama_peserta') ?></label>
-                                  <input type="text" class="form-control" name="nama_peserta" id="nama_peserta" placeholder="Nama Peserta" required/>
+                                  <input type="text" class="form-control" name="nama_peserta" id="nama_peserta" placeholder="Nama Peserta" value="<?= $user->first_name ?>" required/>
                             </div>
                           <?php } ?>
 
@@ -501,13 +502,13 @@
                                                     
                                                   
                                                    
-                          <?php if ($formulir->penerima_kip=='Ya'){ ?>
+                          <?php if ($formulir->penerima_kip=='Ya' && $user->tujuan=='SDIQu'){ ?>
                           <div class="form-group">
-                                <label for="varchar">Penerima KIP <span style="color:red;">*</span> <?php echo form_error('penerima_kip') ?></label>
+                                <label for="varchar">Jenis Sekolah<span style="color:red;">*</span> <?php echo form_error('penerima_kip') ?></label>
                                 <select type="text" class="form-control" name="penerima_kip" id="penerima_kip" placeholder="Penerima KIP" value="" required/>
-                                        <option value="">Pilih Penerima</option>
-                                        <option value="Ya">Ya</option>
-                                        <option value="Tidak">Tidak</option>
+                                        <option value="">Pilih Jenis Sekolah</option>
+                                        <option value="Full Day">Full Day</option>
+                                        <option value="Boarding">Boarding</option>
                                 </select>
                           </div>
                           <?php } else { ?>

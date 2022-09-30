@@ -152,6 +152,16 @@ class Member extends CI_Controller
 
     public function create_form()
     {
+		$user = $this->ion_auth->user()->row();
+		if ($user->tujuan == 'SDIQu') {
+			$code_tujuan = 'SD';
+		}
+		if ($user->tujuan == 'SMPIQu') {
+			$code_tujuan = 'SMP';
+		}
+		if ($user->tujuan == 'SMAIQu') {
+			$code_tujuan = 'SMA';
+		}
         // no pendaftaran
 		$data['formulir'] =  $this->Formulir_model->get_by_id_1();
 		if ($data['formulir']->kode_formulir=="Ya") {  
@@ -160,7 +170,7 @@ class Member extends CI_Controller
 	    	$no_pendaftaran=$data['nodaftar'];
 	    } else {
 			$data['no_pendaftaran'] = $this->Peserta_model->no_pendaftaran(); 
-			$data['nodaftar'] = $data['formulir']->kode_daring."-".$data['no_pendaftaran'];  		
+			$data['nodaftar'] = $data['formulir']->kode_daring."-".$data['no_pendaftaran'].'-'.$code_tujuan;  		
 	    	$no_pendaftaran=$data['nodaftar'];	    	
 	    }
     	

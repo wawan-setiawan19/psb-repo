@@ -151,7 +151,7 @@
                   <?php } ?>
                   <?php if ($formulir->sptjm=='Ya'){ ?>
                       <div class="form-group">
-                        <label for="varchar">Surat Pertanggungjawaban Mutlak Orangtua <span style="color:red;">*</span></label>
+                        <label for="varchar">Surat Pernyataan <span style="color:red;">*</span></label>
                         <input type="hidden" class="form-control" name="id_peserta[]" value="<?php echo $nomer->id_peserta; ?>"/>
                         <input type="file" class="form-control" name="berkas[]" />  
                         <input type="hidden" class="form-control" name="keterangan_berkas[]" placeholder="Keterangan Berkas" value="Surat Pertanggungjawaban Mutlak Orangtua" /> 

@@ -533,14 +533,16 @@ if ($this->ion_auth->is_admin() || $group->group_id=="3"){ ?>
               <i class="fas fa-user-graduate"></i>
             </div>
             <?php
-              $get_link = $this->Jurusan_model->get_link($biodata->jalur, $biodata->jenis_kelamin);
+              if (!empty($biodata)) {
+                $get_link = $this->Jurusan_model->get_link($biodata->jalur, $biodata->jenis_kelamin);
+              }
               $link_group = '';
-              if ($get_link !== null) {
+              if (!empty($get_link)) {
                 $link_group = $get_link->kuota_jurusan;
               }
             ?>
             <a href="<?= $link_group;?>" class="small-box-footer">
-              Gabung Grup <?=  $biodata->jalur?>&nbsp; <i class="fa fa-arrow-circle-right"></i>
+              Gabung Grup <?=  $user->tujuan?>&nbsp; <i class="fa fa-arrow-circle-right"></i>
             </a>              
           </div>
         </div>
